@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Activate Account | {{ block.super }}
+{% endblock %}
+
+{% block header %}
+<h1>Activate your account</h1>
+{% endblock %}
+
+{% block content %}
+Thank you for signing up. An email with the activation code has been send to your inbox. 
+After clicking it, <a href="{% url auth_login %}">you can log in here</a>.
+{% endblock %}

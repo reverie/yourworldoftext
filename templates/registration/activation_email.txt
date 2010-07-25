@@ -1,0 +1,5 @@
+Thanks for signing up at Your World of Text. Please activate your account by 
+visiting http://{{ site }}{% url registration_activate activation_key %}
+
+Andrew Badr
+andrewbadr@gmail.com

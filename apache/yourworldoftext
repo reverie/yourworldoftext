@@ -1,0 +1,7 @@
+<VirtualHost *>
+    ServerName yourserver.example.com
+	ServerAdmin yourname@example.com
+    Alias /static/ /var/www/yourworldoftext/static/
+    Alias /media/ /usr/lib/python2.6/site-packages/django/contrib/admin/media/
+    WSGIScriptAlias / /var/www/yourworldoftext/apache/wsgi.py
+</VirtualHost>

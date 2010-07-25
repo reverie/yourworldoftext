@@ -1,0 +1,192 @@
+* { 
+    margin: 0; 
+    padding: 0;
+}
+body {
+    background: #ccc;
+    overflow: hidden;
+}
+
+img
+{
+    border: 0;
+    text-decoration: none;
+} 
+
+.tilecont {
+    position: absolute;
+    background-color: #fff;
+}
+
+.protected {
+    background-color: #eee;
+}
+
+#yourworld table {
+    table-layout: fixed;
+}
+
+/*
+td {
+    overflow: hidden;
+}
+*/
+
+
+/* below is just for tabs etc. */
+
+a, a:link, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+#topbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+#topbar_inner {
+    width:100%;
+    position:absolute;
+}
+
+.ui {
+    color: #888;
+    font-family: Verdana;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.ui-vis {
+    background-color: rgba(0, 0, 255, .1);
+    padding: 2px;
+}
+
+.tab {
+    padding-top: 0;
+    top: 0px;
+    position: absolute;
+}
+
+#paused {
+    left: 2px;
+    display: none;
+}
+
+#announce {
+    display:none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    width: 60%;
+    text-align: center;
+    background: #E5E5FF;
+    font-weight: bold;
+    color: #333;
+}
+
+#loading {
+    font-family: Verdana;
+}
+
+#coords {
+    display:none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #555;
+    background: #E5E5FF;
+}
+
+.menu {
+    right: 0;
+    display: none; /* title is shown by makeMenu */
+}
+
+#menu {
+    cursor: pointer;
+}
+
+#menu.hover {
+    /* change style to match menu content on hover */
+    color: #555;
+    background: #E5E5FF;
+    border-left: 1px solid #ccc;
+}
+
+.coordLink {
+    color: green;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a.urlLink {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*** NAV MENU code taken from jquery.droppy ***/
+
+#nav {
+ display: none;
+ position: absolute; 
+ text-align: right;                                                           
+ top: 1.5em; /* adjusted by JS */
+ background: #E5E5FF; /* Like title w/white background, no alpha */
+ width: 8em;
+ color: #555;
+ border-left: 1px solid #ccc;
+ border-bottom: 1px solid #ccc;
+}
+
+#nav li { 
+    display: block;                                                           
+    list-style: none; 
+    position: relative;
+    cursor: pointer;
+}
+
+#nav a {      
+    display: block; 
+}
+
+* html #nav ul { line-height: 0; } /* IE6 "fix" */                            
+#nav ul a { zoom: 1; } /* IE6/7 fix */                                        
+
+#nav a { }
+#nav li.hover { background-color: white; }
+/* #nav ul a { border-bottom: none; } - I also needed this for IE6/7 */
+
+
+/*** END NAV MENU ***/
+
+
+/*** SIMPLEMODAL code taken from jquery.simplemodal ***/
+#simplemodal-overlay {background-color:#000; cursor:default;}
+#simplemodal-container {
+       color:#333; 
+       background-color:#e5e5ff; 
+       border:6px solid #c3c3ff; 
+       padding:12px;
+   }
+#simplemodal-container a {color:#ddd;}
+
+.simplemodal-closelink { color: blue; text-decoration: underline; cursor:pointer}
+.simplemodal-closebutton { 
+    position:absolute; 
+    top:-15px; 
+    right:-15px; 
+    cursor:pointer;
+    font-size: 160%;
+}
+
+/*** SIMPLEMODAL CONTENT ***/
+
+#goto_submit {
+    margin-left: 1em;
+    margin-top: 3px;
+}
+
+/*** END SIMPLEMODAL ***/

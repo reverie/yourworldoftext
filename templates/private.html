@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Profile | {{ block.super }}
+{% endblock %}
+
+{% block header %}
+    <h1>Private</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="text">
+		<p>Sorry, the owner of that world has made it only visible to members.
+			{% if user.is_authenticated %}
+				<a href="/">Go back to the main world</a>, perhaps.
+			{% else %}
+				Perhaps <a href="{% url auth_login %}">login </a> or <a href="{% url registration_register %}">create an account</a>. 
+				</p><p>
+				Or, <a href="/">go back to the main world</a>.
+			{% endif %}
+		</p>
+    </div>
+{% endblock %}

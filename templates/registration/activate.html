@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Activated | {{ block.super }}
+{% endblock %}
+
+{% block header %}
+<h1>Activation Successful</h1>
+{% endblock %}
+
+{% block content %}
+Thanks for activating your account. <a href="{% url auth_login %}">You may now log in</a>.
+{% endblock %}

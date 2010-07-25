@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Options for "{{ world }}" | {{ block.super }}
+{% endblock %}
+
+{% block endhead %}
+<link rel="stylesheet" type="text/css" href="/static/jquery.autocomplete.css">
+{% endblock %}
+
+{% block header %}
+	<h1>Options for "{{ world }}"</h1>
+	<span><a href="{% url profile %}">« Back to profile</a></span>
+{% endblock %}
+
+{% block content %}
+	<div class="content_set">
+		<div class="content_set_title">Access</div>
+		<div class="content_set_content">
+			<form method="POST" action=".">{% csrf_token %}
+			Visitors who aren't members: <select name="public_perm">
+				<option value="none"{% ifequal public_perm "none" %} selected{% endifequal %}>cannot view this world at all.</option>
+				<option value="read"{% ifequal public_perm "read" %} selected{% endifequal %}>can view this world, but not edit it.</option>
+				<option value="write"{% ifequal public_perm "write" %} selected{% endifequal %}>can view this world and edit it.</option>
+			</select>
+			<input type="hidden" name="form" value="public_perm">
+			<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+	<div class="content_set clearfix">
+		<div class="content_set_title">Features</div>
+		<div class="content_set_content">
+			<div class="set_description">
+				Control what features are usable on your world. 
+				When a feature is set to "enabled", any visitor to the world can use it. Otherwise, it is only available for the owner.
+			</div>
+			<form method="POST" action=".">{% csrf_token %}
+			<table id="feature_choices">
+				<tr>
+					<td class="feature_name">Go to coordinates</td>
+					<td>
+						<select name="go_to_coord">
+							<option value="0" {% if not world.properties.features.go_to_coord %}selected{% endif %}>disabled</option>
+							<option value="1" {% if world.properties.features.go_to_coord %}selected{% endif %}>enabled</option>
+						</select>
+					</td>
+					<td class="feature_description">
+						Transports you to any given coordinates on a world. 
+					</td>
+				</tr>
+				<tr>
+					<td class="feature_name">Create link to coordinates</td>
+					<td>
+						<select name="coordLink">
+							<option value="0" {% if not world.properties.features.coordLink %}selected{% endif %}>disabled</option>
+							<option value="1" {% if world.properties.features.coordLink %}selected{% endif %}>enabled</option>
+						</select>
+					</td>
+					<td class="feature_description">
+						Make a letter link to a different part of the world. 
+					</td>
+				</tr>
+				<tr>
+					<td class="feature_name">Create link to URL</td>
+					<td>
+						<select name="urlLink">
+							<option value="0" {% if not world.properties.features.urlLink %}selected{% endif %}>disabled</option>
+							<option value="1" {% if world.properties.features.urlLink %}selected{% endif %}>enabled</option>
+						</select>
+					</td>
+					<td class="feature_description">
+						Make a letter link to a URL.
+					</td>
+				</tr>
+
+
+			</table>
+			<input type="hidden" name="form" value="features">
+			<span style="float:right">
+			<input type="submit" value="Submit">
+			</span>
+			</form>
+		</div>
+	</div>
+
+	<div class="content_set">
+		<div class="content_set_title">Members</div>
+		<div class="content_set_content">
+			{% if members %}
+				<ul>
+					<form method="POST" action=".">{% csrf_token %}
+					<input type="hidden" name="form" value="remove_member">
+					{% for member in members %}
+						<li>{{ member }} <input type="submit" name="remove_{{ member }}" value="Remove {{ member }}">
+					{% endfor %}
+					</form>
+				</ul>
+			{% else %}
+				<span style="margin-left:1em">None</span>
+			{% endif %}
+			{% if add_member_message %}<div><i>{{ add_member_message }}</i></div>{% endif %}
+			<div style="margin-top:.3em">
+				<form method="POST" action=".">{% csrf_token %}
+				<label for="choose_member">Add a member: </label>
+				<input id="choose_member" type="text" name="add_member" value="">
+				<input type="hidden" name="form" value="add_member">
+				<input type="submit" value="Submit">
+			</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% block endbody %}
+<script type="text/javascript" src="/static/jquery.autocomplete.min.js"></script>
+<script type="text/javascript" src="/static/profile.js"></script>
+{% endblock %}

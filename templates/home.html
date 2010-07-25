@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Homepage | {{ block.super }}
+{% endblock %}
+
+{% block header %}
+    <h1>About Your World of Text</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="text">
+        <p>
+            <a href="/">Your World of Text</a> is an infinite
+            grid of text editable by any visitor. The changes made by other people
+            appear on your screen as they happen. Everyone starts in the same place, but
+            you can scroll through the world using your mouse.
+        </p>
+        <p>
+            Put any letters at the end of the URL to go to a new world. For
+            example, <a href="/forexample">http://yoursitehere.com/forexample</a>.
+            They all start off blank. You can also <a href="{% url profile %}">create a custom
+            world</a> for you and your friends.
+        </p>
+    </div>
+{% endblock %}
