@@ -1,0 +1,7 @@
+How to make it go:
+$ git clone http://github.com/reverie/yourworldoftext.git
+$ pip install -r requirements.txt
+$ python manage.py syncdb
+$ python.manage.py runserver
+
+- 
