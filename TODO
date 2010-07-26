@@ -1,0 +1,19 @@
+Features:
+ - per-world option to allow paste
+ - password reset
+ - ability to resend activation email
+ - ability to dump a world to text
+ - edit-viewing "admin" interface for noticing abuse
+ - colors
+
+Enhancements:
+ - ability to cancel protect/unprotect
+ - ability to change username/password
+ - better range selection for protect/unprotect and linking
+ - scroll left and up with arrow keys
+
+Bugs:
+ - some large unicode characters mess up the client character alignment
+ - client sometimes doesn't start in the center?
+ - change ENTER behavior to account for arrow cursor movements too
+
