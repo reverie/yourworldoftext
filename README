@@ -17,9 +17,9 @@ The lay of the land:
 Where to take it:
 If you want to get involved in Your World of Text, the TODO file lists a variety of incremental improvements that could be made. If, rather, you want to fork the project and go a new direction, here are some ideas: generalize the tile system; implement a client-side scripting language for a LOGO-like accessible programming environment; or make a collaborative brainstorming tool. Whatever it is, feel free email me if I can help in any way.
 
-docker
+# docker
 
-$ docker run -d -p 8000:8000 -v yourworldoftext_data:/yourworld/ kbeflo/yourworldoftext
+$ docker run -d -p 8000:8000 -v yourworldoftext_data:/yourworld kbeflo/yourworldoftext
 
 docker-compose
 
@@ -31,10 +31,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - data:/yourworld
+      - yourworldoftext_data:/yourworld
     restart: unless-stopped
 
 volumes:
-  data:
+  yourworldoftext_data:
 
 
